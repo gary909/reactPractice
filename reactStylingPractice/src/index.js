@@ -8,22 +8,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-let currentTime = new Date(2019, 1, 1, 18);
+let currentTime = new Date(2019, 1, 1, 12);
 let time = currentTime.getHours();
 let timeWord = "Morning";
 
+let myStyle = {
+  color: "red"
+};
+
 if (time < 12) {
   timeWord = "Morning";
-} else if (time > 12 && time < 17) {
+  myStyle.color = "red";
+} else if (time >= 12 && time < 17) {
   timeWord = "Day";
-} else if (time > 17) {
+  myStyle.color = "green";
+} else if (time >= 17) {
   timeWord = "Evening";
+  myStyle.color = "blue";
 }
 
 ReactDOM.render(
   <div>
-    <h1>Good {timeWord} </h1>
-    <h1>Good {time} </h1>
+    <h1 style={myStyle}>Good {timeWord} </h1>
   </div>,
   document.getElementById("root")
 );
